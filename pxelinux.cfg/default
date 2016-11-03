@@ -33,6 +33,13 @@ LABEL Fedora-24-x86_64
 	APPEND initrd=images/fedora/24/x86_64/initrd.img ramdisk_size=100000 ip=dhcp inst.stage2=http://mirrorservice.org/sites/dl.fedoraproject.org/pub/fedora/linux/releases/24/Everything/x86_64/os/
 
 LABEL Ubuntu-16.04-Xenial
-  MENU LABEL Install Ubuntu 16.04 (Xenial)
-  KERNEL images/ubuntu/xenial/amd64/linux
-  APPEND initrd=images/ubuntu/xenial/amd64/initrd.gz vga=normal ramdisk_size=16432
+	MENU LABEL Install Ubuntu 16.04 (Xenial)
+	KERNEL images/ubuntu/xenial/amd64/linux
+	APPEND initrd=images/ubuntu/xenial/amd64/initrd.gz vga=normal ramdisk_size=16432
+  
+LABEL Apricity-OS-09.2016-aspen-gnome-x86_64
+        MENU LABEL Apricity OS (09.2016) - Gnome
+        LINUX images/arch/apricity_os/09_2016/arch/boot/x86_64/vmlinuz
+        INITRD images/arch/apricity_os/09_2016/arch/boot/intel_ucode.img,images/arch/apricity_os/09_2016/arch/boot/x86_64/archiso.img
+        APPEND archisobasedir=arch archiso_nfs_srv=${nfsserver}:images/arch/apricity_os/09_2016/ ip=:::::eth0:dhcp
+        SYSAPPEND 3
